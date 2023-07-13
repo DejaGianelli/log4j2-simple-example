@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug" name="drivelab" packages="">
+    <Appenders>
+        <!-- Console appender -->
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        </Console>
+
+        <!-- File appender -->
+        <File name="file" fileName="drivelab.log" append="true">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5p %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+    <Loggers>
+        <!-- Override log level for specified package -->
+        <Logger name="com.drivelab.trace" level="trace" />
+
+        <!-- Changing the log level to upper parameter causes the messages with lower log levels will not be print to appenders -->
+        <Root level="debug">
+            <AppenderRef ref="stdout"/>
+            <AppenderRef ref="file"/>
+        </Root>
+    </Loggers>
+</Configuration>
